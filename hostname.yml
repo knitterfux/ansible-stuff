@@ -1,0 +1,14 @@
+---
+- hosts: cpl
+  tasks:
+     - command: /bin/hostname
+       register: command_output
+
+     - debug:
+              var: command_output.stdout_lines
+
+     - shell: "ls -al"
+       register: command_output
+
+     - debug:
+              var: command_output.stdout_lines
